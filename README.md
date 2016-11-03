@@ -11,14 +11,31 @@ An editable clock for time-based parametric projects
 
 * Add a `<script></script>` right after the previous line
 
-* Declare a new variable `hhmmss` as a `new HHMMSS()` inside between the `script` tags
+* Declare a new variable `hhmmss` and assign `new HHMMSS()`
 
 * If you want to, you can change the clock's appearance by adding an object as a parameter of the `HHMMSS()` function. The different options are listed below
 
+
 ## Controls
+* Moving the mouse will reveal the clock
+
+* Clicking on either the hours, minutes or seconds will put them in "edit" mode. If you click outside the selected number or if you press enter, it will validate the current value (if not empty)
+
+* Drag-and-dropping from left to right (and vice-versa) on a number will increment or decrement it
+
+* Double-clicking will reset the clock to current time
 
 
 ## Options
+* `type` : `"horizontal"` (default) or `"vertical"`
+
+* `horizontalAlign` : `"left"`, `"hcenter"` (default) or `"right"`
+
+* `verticalAlign` : `"top"`, `"vcenter"` (default) or `"bottom"`
+
+* `size` : `"small"`, `"medium"` (default) or `"big"`
+
+* `invert` : `false` or `true` (default)
 
 
 ## Aknowledgment
