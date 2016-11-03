@@ -15,6 +15,10 @@ An editable clock for time-based parametric projects
 
 * If you want to, you can change the clock's appearance by adding an object as a parameter of the `HHMMSS()` function. The different options are listed below
 
+* Get the clock time in your code using `hhmmss.getH()`, `hhmmss.getM()`, `hhmmss.getS()` and `hhmmss.getMillis()`
+
+* Check the "index.html" example file if you need any help
+
 
 ## Controls
 * Moving the mouse will reveal the clock
