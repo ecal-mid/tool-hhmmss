@@ -149,18 +149,18 @@ function HHMMSS(options) {
     }, false);
 
     var s_active = false,
-    m_active = false,
-    h_active = false,
-    prevX;
+        m_active = false,
+        h_active = false,
+        prevX;
 
     var s_Click,
-    m_Click,
-    h_Click,
-    clickTimeout,
-    s_waitingForInput = false,
-    m_waitingForInput = false,
-    h_waitingForInput = false,
-    input = null;
+        m_Click,
+        h_Click,
+        clickTimeout,
+        s_waitingForInput = false,
+        m_waitingForInput = false,
+        h_waitingForInput = false,
+        input = null;
 
     hhmmss_s.addEventListener("mousedown", function() {
         s_active = true;
@@ -394,4 +394,16 @@ function HHMMSS(options) {
             }
         }
     }, false);
+
+    document.addEventListener("visibilitychange", function() {
+        if(document.visibilityState == "visible") {
+            date = new Date();
+            h    = date.getHours();
+            m    = date.getMinutes();
+            s    = date.getSeconds();
+            mill = date.getMilliseconds();
+
+            updateDisplayedTime();
+        }
+    });
 }
