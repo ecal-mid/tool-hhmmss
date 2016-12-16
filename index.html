@@ -66,7 +66,7 @@
                 ctx.fillStyle = "rgb(170, 170, 170)";
                 ctx.fillRect(width / 3, height - m_height, width / 3, m_height);
 
-                s_height += (remap(hhmmss.getS(), 0, 60, 0, height) - s_height) * .1;
+                s_height = (remap(hhmmss.getS() + hhmmss.getMillis() / 1000, 0, 60, 0, height));// - s_height) * .1;
                 ctx.fillStyle = "rgb(255, 255, 255)";
                 ctx.fillRect(2 * width / 3, height - s_height, width / 3, s_height);
 

@@ -43,7 +43,8 @@ function HHMMSS(options) {
     var date = new Date(),
         h    = date.getHours(),
         m    = date.getMinutes(),
-        s    = date.getSeconds();
+        s    = date.getSeconds(),
+        mill = date.getMilliseconds();
 
     hhmmss_h.innerHTML = h < 10 ? "0" + h : h;
     hhmmss_m.innerHTML = m < 10 ? "0" + m : m;
@@ -51,6 +52,8 @@ function HHMMSS(options) {
 
     function updateTime() {
         if(!s_active && !m_active && !h_active) {
+            var d = new Date();
+            mill  = d.getMilliseconds();
             s++;
             if (s >= 60) {
                 s = 0;
@@ -74,7 +77,9 @@ function HHMMSS(options) {
         if(!s_waitingForInput) hhmmss_s.innerHTML = s < 10 ? "0" + s : s;
     }
 
-    setInterval(updateTime, 1000);
+    setTimeout(function() {
+        setInterval(updateTime, 1000);
+    }, 1000 - mill);
 
     this.getS = function() {
         return s;
@@ -90,7 +95,10 @@ function HHMMSS(options) {
 
     this.getMillis = function() {
         var d = new Date();
-        return d.getMilliseconds();
+        if(Math.abs(mill - d.getMilliseconds()) < 100) {
+            mill = d.getMilliseconds();
+        }
+        return mill;
     }
 
     var doubleClick = false,
@@ -129,9 +137,10 @@ function HHMMSS(options) {
             }
         } else {
             date = new Date();
-            h = date.getHours();
-            m = date.getMinutes();
-            s = date.getSeconds();
+            h    = date.getHours();
+            m    = date.getMinutes();
+            s    = date.getSeconds();
+            mill = date.getMilliseconds();
 
             updateDisplayedTime();
 
