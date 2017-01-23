@@ -51,9 +51,9 @@ function HHMMSS(options) {
     hhmmss_s.innerHTML = s < 10 ? "0" + s : s;
 
     function updateTime() {
-        var m = (new Date()).getMilliseconds();
+        var tempMill = (new Date()).getMilliseconds();
 
-        if(!s_active && !m_active && !h_active && mill > m) {
+        if(!s_active && !m_active && !h_active && mill > tempMill) {
             s++;
             if (s >= 60) {
                 s = 0;
@@ -68,7 +68,7 @@ function HHMMSS(options) {
             }
         }
 
-        mill = m
+        mill = tempMill;
 
         updateDisplayedTime();
     }
